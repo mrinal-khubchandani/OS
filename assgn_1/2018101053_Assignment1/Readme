@@ -1,0 +1,5 @@
+For Question 1:
+		The input should be the absolute or relative path of the input file.For eg if the file is in same folder and has name input.txt it should be ./a.out input.txt
+
+For Question 2:
+		The input should be the absolute or relative paths of the old file,new file and directory.For eg if the files are in the same folder it should be ./a.out old.txt new.txt directory
