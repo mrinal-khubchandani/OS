@@ -18,7 +18,7 @@ mapp={}
 for i in range(0,m):
 	mapp[data["letters"][i]]=i
 for i in range(0,len(data["t_func"])):
-	for j in range(0,len(data["t_func"][i][1])):
+	for j in range(0,len(data["t_func"][i][2])):
 		# print(type(mapp[data["t_func"]][i][1]))
 
 		arr[data["t_func"][i][0]][mapp[data["t_func"][i][1]]].append(data["t_func"][i][2][j])
@@ -49,14 +49,14 @@ for i in range(0,2**n):
 	print(lt)	
 	print(len(lt))
 
-	ans=[]
-	for j in range(0,n):
-		ans.append(0)
+	
 	for k in range(0,m):
-
+		ans=[]
+		for j in range(0,n):
+			ans.append(0)
 		for j in range(0,n):
 			if lt[j]==1:
-				for p in arr[j+1][k]:
+				for p in arr[j][k]:
 					ans[p]=1;
 
 
@@ -65,7 +65,7 @@ for i in range(0,2**n):
 	flag=False
 	for j in range(0,n):
 		if lt[j] ==1:
-			if (j+1) in data["final"]:
+			if (j) in data["final"]:
 				flag=True
 	if flag:
 		final_states.append(i)				

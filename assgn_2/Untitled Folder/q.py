@@ -66,7 +66,9 @@ for i in range(pp):
 
     for k in range(input_char):
         for l in range(no_of_states):
-            if lst[l]==1:
+            if lst[l]!=1:
+				continue
+			else:
                 for p in a[l+1][k]:
                     ans[p]=1
                     
