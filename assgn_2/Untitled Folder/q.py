@@ -1,16 +1,26 @@
 import json
 
 with open('input.json') as inp_file:
-	temp=json.load(inp_file)
+    temp=json.load(inp_file)
 
 temp1=json.dumps(temp)
-inp=eval(temp1)
 
 equi={}
+inp=eval(temp1)
+a = []
+
+def func():
+	i=0
+	j=0
+	while i < (len(inp["t_func"])):
+		while j < (len(inp["t_func"][i][2])):
+			a[inp["t_func"][i][0]][equi[inp["t_func"][i][1]]].append(inp["t_func"][i][2][j])
+			j+=1
+		i+=1
+
 input_char=len(inp["letters"])
 no_of_states=inp["states"]
 pp = 2**no_of_states
-a = []
 ans = []
 convert = []
 final_states= []
@@ -30,13 +40,7 @@ while i < (no_of_states+1):
     a.append(lst)
     i+=1
 
-i=0
-j=0
-while i < (length):
-    while j < (len(inp["t_func"][i][2])):
-        a[inp["t_func"][i][0]][equi[inp["t_func"][i][1]]].append(inp["t_func"][i][2][j])
-        j+=1
-    i+=1
+func()
 
 i=0
 j=0
@@ -67,8 +71,8 @@ for i in range(pp):
     for k in range(input_char):
         for l in range(no_of_states):
             if lst[l]!=1:
-				continue
-			else:
+                continue
+            else:
                 for p in a[l+1][k]:
                     ans[p]=1
                     
@@ -76,7 +80,7 @@ for i in range(pp):
         for y in range(0,len(ans)):
             fin+=int(2**y)
         convert[i][k]=fin
-	
+    
     cond=0
     for j in range(no_of_states):
         if lst[j]==1:
@@ -95,12 +99,12 @@ for i in range(pp):
 
 output_fin = []
 output_fin.append({
-	"states"  : pp,
-	"letters" : inp["letters"],
-	"t_func"  : new_t_func,
-	"start"   : inp["start"],
-	"final"   : final_states
-	})
+    "states"  : pp,
+    "letters" : inp["letters"],
+    "t_func"  : new_t_func,
+    "start"   : inp["start"],
+    "final"   : final_states
+    })
 
 with open('output.json','w') as out_file:
-	json.dump(output_fin,out_file)
+    json.dump(output_fin,out_file)

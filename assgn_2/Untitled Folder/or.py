@@ -74,9 +74,27 @@ DFA_FUNC =[]
 for i in range(0,2**n):
 	for j in range(0,m):
 		lt=[]
-		lt.append(i)
+		binary = []
+		temp = i
+		cur_state = 0
+		while temp:
+			if temp%2:
+				binary.append(cur_state)
+			cur_state+=1
+			temp1=temp/2
+			temp=int(temp1)
+		lt.append(binary)
+		binary1 = []
+		temp = DFA[i][j]
+		cur_state = 0
+		while temp:
+			if temp%2:
+				binary1.append(cur_state)
+			cur_state+=1
+			temp1=temp/2
+			temp=int(temp1)
 		lt.append(data["letters"][j])
-		lt.append(DFA[i][j])
+		lt.append(binary1)
 		DFA_FUNC.append(lt)
 # print(DFA_FUNC)
 ans=[]
