@@ -10,13 +10,13 @@ inp=eval(temp1)
 a = []
 
 def func():
-	i=0
-	j=0
-	while i < (len(inp["t_func"])):
-		while j < (len(inp["t_func"][i][2])):
-			a[inp["t_func"][i][0]][equi[inp["t_func"][i][1]]].append(inp["t_func"][i][2][j])
-			j+=1
-		i+=1
+    i=0
+    j=0
+    while i < (len(inp["t_func"])):
+        while j < (len(inp["t_func"][i][2])):
+            a[inp["t_func"][i][0]][equi[inp["t_func"][i][1]]].append(inp["t_func"][i][2][j])
+            j+=1
+        i+=1
 
 input_char=len(inp["letters"])
 no_of_states=inp["states"]
@@ -66,14 +66,13 @@ for i in range(pp):
     while len(lst)!=(no_of_states):
         lst.append(0)
 
-    ans=[0 for j in range(no_of_states)]
-
     for k in range(input_char):
+        ans=[0 for j in range(no_of_states)]
         for l in range(no_of_states):
             if lst[l]!=1:
                 continue
             else:
-                for p in a[l+1][k]:
+                for p in a[l][k]:
                     ans[p]=1
                     
         fin=0
@@ -84,7 +83,7 @@ for i in range(pp):
     cond=0
     for j in range(no_of_states):
         if lst[j]==1:
-            if (j+1) in inp["final"]:
+            if (j) in inp["final"]:
                 cond=1
     if cond:
         final_states.append(i)
