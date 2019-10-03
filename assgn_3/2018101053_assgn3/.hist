@@ -1,10 +1,4 @@
 jobs
-`fg 2
-`jobs
-`fg 2
-`jobs
-`kjob 1 9
-`jobs
 `jobs
 `quit
 `ls
@@ -18,4 +12,10 @@ jobs
 `[A
 `cat 1.txt | rev
 `cat 1.txt | rev
+`ls &
+`
+`fdfds &
+`
+`
+`quit
 `
