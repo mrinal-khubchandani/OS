@@ -1,11 +1,4 @@
-jobs
-`quit
-`ls
-`[A
-`ls
-`quit
-`ls
-`ls > 1.txt
+ls > 1.txt
 `cat 1.txt
 `cat 1.txt | sort
 `[A
@@ -17,5 +10,12 @@ jobs
 `gedit
 `emacs &
 `jobs
+`quit
+`gedit &
+`jobs
+`gedit
+`jobs
+`jobs
+`gedit
 `quit
 `
