@@ -1,0 +1,21 @@
+jobs
+`bg 2
+`jobs
+`fg 1
+`jobs
+`quit
+`firefox &
+`emacs
+`gedit
+`jobs
+`bg 2
+`jobs
+`jobs
+`fg 1
+`jobs
+`quit
+`ls
+`firefox
+`jobs
+`quit
+`

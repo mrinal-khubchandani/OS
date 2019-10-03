@@ -1,0 +1,48 @@
+Here dir/ means a Directory path
+echo:
+    The call_echo.c file handles the echo command
+    This supports echo abc which prints abc and if we do echo "abc" it prints "abc"
+
+cd:
+    The call_cd.c file handles the cd command with cd ~ ,cd - being supported
+    This supports:
+        cd dir/
+        cd ~
+        cd -
+        cd
+
+history:
+    The call_history.c handles both the addition of the command to the storage file and the function call history
+    history prints the last 10 commands while history n prints last n commands n<=10;
+
+ls:
+    The call_ls.c file handles the various types of ls commands
+    This supports:
+        ls
+        ls -l
+        ls -la
+        ls -al
+        ls -a
+        ls dir/
+        ls -l dir/
+        ls -la dir/
+        ls -al dir/
+        ls -a dir/
+
+nightswatch:
+    The call_nightswatch.c handles the command nightswatch with "interrupt" and "dirty" being possible arguments
+    format: here i is a number
+        nightswatch -n i interrupt
+        nightswatch -n i dirty 
+
+pinfo:
+    The call_pinfo.c file handles the pinfo command
+    The format is:
+        pinfo
+        pinfo procnum
+pwd:
+    The call_pwd.c handles the pwd command
+
+The check.c file checks the command input and then calls a function appropriately. for eg if input is cd ~, it will call call_cd function
+The printDir.c file prints the current Directory of the shell while replacing the place where the shell is located by with ~
+The takeInput.c file takes command input from user then calls add_history1 function to save the command in history

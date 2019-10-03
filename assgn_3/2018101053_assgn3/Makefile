@@ -1,0 +1,2 @@
+Shell : main.c call_echo.c takeinput.c cronjob.c redirect.c sep_space.c call_cd.c call_history.c call_ls.c call_nightswatch.c call_pinfo.c call_pwd.c check.c printDir.c setenv.c unsetenv.c bg.c fg.c overkill.c kjob.c jobs.c
+	gcc -o Shell main.c takeinput.c call_echo.c redirect.c sep_space.c cronjob.c call_cd.c call_history.c call_ls.c call_nightswatch.c call_pinfo.c call_pwd.c check.c printDir.c setenv.c unsetenv.c bg.c fg.c overkill.c kjob.c jobs.c -lreadline -lncurses -I.

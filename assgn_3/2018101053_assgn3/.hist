@@ -1,0 +1,21 @@
+jobs
+`fg 2
+`jobs
+`fg 2
+`jobs
+`kjob 1 9
+`jobs
+`jobs
+`quit
+`ls
+`[A
+`ls
+`quit
+`ls
+`ls > 1.txt
+`cat 1.txt
+`cat 1.txt | sort
+`[A
+`cat 1.txt | rev
+`cat 1.txt | rev
+`
