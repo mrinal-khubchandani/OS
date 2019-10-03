@@ -1,64 +1,59 @@
 #include"global.h"
 
 void sigintHandler1(int sig_num) 
-{
-    if(ctrl_z_cond == 0){
-        return;
-    }
-    int ff=0;
-    signal(SIGTSTP, sigintHandler1);
-    printf("%s\n",curr_fg_proc_name);
-
-    for(int l=0;l<size;l++)
-    {
-        int x = strcmp(runn_proc[l].proc_name,curr_fg_proc_name);
-        if(x || runn_proc[l].pid == -1){
-            continue;
-        }
-        ff=1;
-        break;
-    }
-
-    if(ff==0)
-    {
-        runn_proc[size].si=size+1;
-        for(int i=0;i<=strlen(curr_fg_proc_name);i++){
-            runn_proc[size].proc_name[i] = curr_fg_proc_name[i];
-        }
-        runn_proc[size].pid=curr_fg_pid;
-        size++;
-    }
-
-    printf("%d\n",curr_fg_pid);
-    kill(curr_fg_pid,SIGTSTP);
-}
-
+  {
+      if(ctrl_z_cond==1)
+      {   
+          signal(SIGTSTP, sigintHandler1);
+          int ff=0;
+          printf("\n%s\n",curr_fg_proc_name);
+  
+          for(int l=0;l<size;l++)
+          {
+              if((runn_proc[l].pid==curr_fg_pid) && runn_proc[l].pid!=-1)
+              {
+                  ff=1;
+                  break;
+              }
+          }
+  
+          if(ff==0)
+          {   
+              strcpy(runn_proc[size].proc_name,curr_fg_proc_name);
+              runn_proc[size].pid=curr_fg_pid;
+              runn_proc[size].si=size+1;
+              size++;
+          }   
+  
+          kill(curr_fg_pid,SIGTSTP);
+      }   
+  }
+  
 void sigintHandler(int sig_num) 
-{ 
-    if(ctrl_c_cond == 0){
-        return;
-    }
-    signal(SIGINT, sigintHandler); 
-    int get_idx=-1;
+{
+	if(ctrl_c_cond==1)
+	{   
+		signal(SIGINT, sigintHandler); 
+		int get_idx=-1;
 
-    for(int l=0;l<size;l++)
-    {
-        int x1 = strcmp(runn_proc[l].proc_name,curr_fg_proc_name);
-        if(x1 || runn_proc[l].pid==-1)
-        {
-            continue;
-        }
-        get_idx=l;
-        break;
-    }
+		for(int l=0;l<size;l++)
+		{   
+			if((runn_proc[l].pid==curr_fg_pid) && runn_proc[l].pid!=-1)
+			{
+				get_idx=l;
+				break;
+			}
+		}
 
-    kill(curr_fg_pid,SIGINT);
-    if(get_idx<0 || get_idx>=size) 
-    {
-        return;
-    }
-    runn_proc[get_idx].pid=-1;
-    printf("\n");
+		kill(curr_fg_pid,SIGINT);
+
+		if(get_idx>=0 && get_idx<size)
+		{
+			runn_proc[get_idx].pid=-1;
+		}
+
+		printf("\n");
+	}
 }
 
 int main() 
