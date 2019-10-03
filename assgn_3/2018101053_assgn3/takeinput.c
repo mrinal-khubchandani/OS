@@ -7,6 +7,9 @@ int takeInput(char* s,char *home_dir)
     long int len = strlen(newline);
 
     int flag_up=0;
+    if(strcmp(newline,"\n")==0)
+        return 1;
+
     if(newline[0] == 27 && newline[1] == 91 && newline[2] == 65){
         flag_up = 1;
     }
