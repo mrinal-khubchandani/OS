@@ -1,11 +1,4 @@
 jobs
-`fg 2
-`jobs
-`fg 2
-`jobs
-`kjob 1 9
-`jobs
-`jobs
 `quit
 `ls
 `[A
@@ -18,4 +11,11 @@ jobs
 `[A
 `cat 1.txt | rev
 `cat 1.txt | rev
+`cronjob -c ls -t 5 -p 15
+`
+`quit
+`gedit
+`emacs &
+`jobs
+`quit
 `

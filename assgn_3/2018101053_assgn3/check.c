@@ -51,6 +51,7 @@ void Check(char** args,char *home_dir,int len,int time,int freq)
         return;
     }
     if(strcmp(args[0],str8) == 0){
+        call_overkill();
         exit(0);
     }
     else if(strcmp(args[0],str2)==0)
