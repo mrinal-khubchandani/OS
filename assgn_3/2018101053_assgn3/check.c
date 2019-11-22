@@ -98,7 +98,7 @@ void Check(char** args,char *home_dir,int len,int time,int freq)
     else if(strcmp(args[0],str15) == 0){
         call_bg(args);
     }
-    else if(strcmp(args[0],str15) == 0){
+    else if(strcmp(args[0],str16) == 0){
         call_cronjob(args,len,home_dir);
     }
     else

@@ -6,13 +6,18 @@ void call_cronjob(char **parsed,int len,char *dir)
     int cnt1=1;
     int cnt2=1;
     int cnt3=1;
-
+    int x,y,z;
     for(p=0;p<len;p++){
-        cnt1 = strcmp(parsed[p],"-c");
-        cnt2 = strcmp(parsed[p],"-t");
-        cnt3 = strcmp(parsed[p],"-p");
+        x = strcmp(parsed[p],"-c");
+        y = strcmp(parsed[p],"-t");
+        z = strcmp(parsed[p],"-p");
+        if(x == 0)
+            cnt1 = x;
+        if(y == 0)
+            cnt2 = y;
+        if(z == 0)
+            cnt3 = z;
     }
-
     if(!(cnt2 || cnt1 || cnt3))
     {
         for(p=0;p<len;p++)
@@ -23,8 +28,7 @@ void call_cronjob(char **parsed,int len,char *dir)
                 idx1 = p;
             else if(x2==0)
                 idx2 = p;
-        }
-
+        };
         int h=0;
         char *parsed1[40];
         int xxx = cnt1 | cnt2 | cnt3;
@@ -33,7 +37,6 @@ void call_cronjob(char **parsed,int len,char *dir)
             parsed1[h]=parsed[k];
             h++;
         }
-
         int ti=0;
         char tem[100];
         strcpy(tem,parsed[idx2+1]);

@@ -33,8 +33,10 @@ void call_fg(char **parsed)
             curr_fg_proc_name[i] = runn_proc[num-1].proc_name[i];
         }
         ctrl_z_cond=1;
+        ctrl_c_cond=1;
         curr_fg_pid = pg;
         waitpid(pg, &status, WUNTRACED);
         ctrl_z_cond=0;
+        ctrl_c_cond=0;
     }
 }
